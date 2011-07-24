@@ -6,10 +6,6 @@ module LetsFreckle
       fetch('tags')
     end
 
-    def initialize(delegate)
-      super(delegate)
-    end
-
     def entries
       Entry.find(:tags => [id])
     end

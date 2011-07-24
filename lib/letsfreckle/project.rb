@@ -6,10 +6,6 @@ module LetsFreckle
       fetch('projects')
     end
 
-    def initialize(delegate)
-      super(delegate)
-    end
-
     def entries
       Entry.find(:projects => [id])
     end

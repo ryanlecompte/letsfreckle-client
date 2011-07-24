@@ -19,7 +19,7 @@ module LetsFreckle
     private
 
     def url(resource)
-      API_URL % [LetsFreckle.config.account, resource, LetsFreckle.config.token]
+      API_URL % [LetsFreckle.config.account_host, resource, LetsFreckle.config.token]
     end
 
     def verify!(response, code, &block)

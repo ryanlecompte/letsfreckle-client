@@ -18,16 +18,14 @@ module LetsFreckle
     end
 
     # Creates a new entry. Supported options are:
-    #  :minutes => '4h'
-    #  :user => 'user@example.com'
+    #  :minutes => '4h' (required)
     #  :project_id => 3221
     #  :description => 'new task'
     #  :date => '2011-08-01'
-    # NOTE: only minutes and user are required
     def self.create(options = {})
-      raise ArgumentError, ':user missing' unless options.has_key?(:user)
+      raise ArgumentError, ':username config missing' unless LetsFreckle.config.username
       raise ArgumentError, ':minutes missing' unless options.has_key?(:minutes)
-      post('entries', :entry => options)
+      post('entries', :entry => options.merge(:user => LetsFreckle.config.username))
     end
 
     def self.build_search_options(options = {})
@@ -37,10 +35,6 @@ module LetsFreckle
         else result["search[#{key}]"] = value.to_s
         end
       end
-    end
-
-    def initialize(delegate)
-      super(delegate)
     end
   end
 end

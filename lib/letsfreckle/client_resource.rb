@@ -29,7 +29,10 @@ module LetsFreckle
     def mashes_from_response(response)
       flattened_response = response.to_a.flatten
       flattened_response.keep_if { |r| r.is_a?(Hash) }
-      flattened_response.map { |h| Hashie::Mash.new(h) }
+      flattened_response.map do |h|
+        m = Hashie::Mash.new(h)
+        m.extend(MashExtension)
+      end
     end
   end
 end

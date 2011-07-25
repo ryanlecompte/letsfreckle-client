@@ -9,24 +9,23 @@ Gem::Specification.new do |s|
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
   s.authors = ["Ryan LeCompte"]
-  s.date = %q{2011-07-24}
-  s.default_executable = %q{run}
+  s.date = %q{2011-07-25}
   s.description = %q{Ruby client for letsfreckle.com API that supports entries, projects, tags, and users}
   s.email = %q{lecompte@gmail.com}
-  s.executables = ["run"]
   s.extra_rdoc_files = [
     "LICENSE.txt",
     "README.rdoc"
   ]
   s.files = [
     ".document",
-    ".idea/projectCodeStyle.xml",
     ".rspec",
     "Gemfile",
+    "Gemfile.lock",
     "LICENSE.txt",
     "README.rdoc",
     "Rakefile",
     "VERSION",
+    "letsfreckle-client.gemspec",
     "lib/letsfreckle.rb",
     "lib/letsfreckle/client_resource.rb",
     "lib/letsfreckle/configuration.rb",
@@ -41,6 +40,7 @@ Gem::Specification.new do |s|
     "spec/letsfreckle/project_spec.rb",
     "spec/letsfreckle/tag_spec.rb",
     "spec/letsfreckle/user_spec.rb",
+    "spec/responses/entries.xml.response",
     "spec/responses/projects.xml.response",
     "spec/responses/tags.xml.response",
     "spec/responses/users.xml.response",

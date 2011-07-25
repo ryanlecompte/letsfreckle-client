@@ -70,6 +70,6 @@ a sample API test account, which the following examples utilize.
 
 == Copyright
 
-Copyright (c) 2011 Ryan LeCompte. See LICENSE.txt for
+Copyright (c) 2011 Ryan LeCompte. See LICENSE for
 further details.
 

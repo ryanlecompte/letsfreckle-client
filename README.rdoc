@@ -28,6 +28,9 @@ a sample API test account, which the following examples utilize.
       token "lx3gi6pxdjtjn57afp8c2bv1me7g89j"
     end
 
+    # Submit a new entry.
+    LetsFreckle::Entry.create(:project_id => 3427, :minutes => '1h', :description => 'fixed a bug')
+
     # Fetch all entries.
     LetsFreckle::Entry.all.each do |entry|
       puts "Entry #{entry.description} - #{entry.minutes} minutes"

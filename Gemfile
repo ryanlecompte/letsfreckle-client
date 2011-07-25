@@ -1,12 +1,4 @@
 source "http://rubygems.org"
 
-gem "httparty"
-gem "hashie"
-
-group :development do
-  gem "rspec", "~> 2.5.0"
-  gem "bundler", "~> 1.0.0"
-  gem "jeweler", "~> 1.6.4"
-  gem "rcov", ">= 0"
-  gem "webmock", "~> 1.6.2"
-end
+# Specify your gem's dependencies in letsfreckle.gemspec
+gemspec

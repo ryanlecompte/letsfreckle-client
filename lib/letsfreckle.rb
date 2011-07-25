@@ -2,6 +2,7 @@ require 'hashie'
 require 'httparty'
 require 'delegate'
 
+require 'letsfreckle/version'
 require 'letsfreckle/extensions/mash'
 require 'letsfreckle/configuration'
 require 'letsfreckle/client_resource'

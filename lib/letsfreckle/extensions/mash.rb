@@ -3,9 +3,11 @@
 # currently define the method in this way, so we provide a module
 # that is #extend'ed into each Hashie::Mash instance that we create.
 module LetsFreckle
-  module MashExtension
-    def respond_to?(sym, include_private=false)
-      super(sym)
+  module Extensions
+    module Mash
+      def respond_to?(sym, include_private=false)
+        super(sym)
+      end
     end
   end
 end

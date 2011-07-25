@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users type="array">
+  <user>
+    <email>apitest@letsfreckle.com</email>
+    <first-name>Test</first-name>
+    <id type="integer">5538</id>
+    <last-name>User</last-name>
+    <login>test</login>
+    <time-format>fraction</time-format>
+    <week-start>Sunday</week-start>
+    <permissions>integration, time, invoicing, reports, tags, expenses, projects, team, people, account, billing, import</permissions>
+  </user>
+  <user>
+    <email>apitest2@letsfreckle.com</email>
+    <first-name>Test2</first-name>
+    <id type="integer">5539</id>
+    <last-name>User</last-name>
+    <login>test2</login>
+    <time-format>fraction</time-format>
+    <week-start>Monday</week-start>
+    <permissions>integration, time, invoicing, reports, tags, expenses, projects, team</permissions>
+  </user>
+</users>

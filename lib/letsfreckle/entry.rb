@@ -14,7 +14,7 @@ module LetsFreckle
     #  :to => '2012-01-01'
     #  :billable => true/false
     def self.find(options = {})
-      fetch('entries', build_search_options(options))
+      fetch('entries', searchable_options_from(options))
     end
 
     # Creates a new entry. Supported options are:
@@ -28,7 +28,7 @@ module LetsFreckle
       post('entries', :entry => options.merge(:user => LetsFreckle.config.username))
     end
 
-    def self.build_search_options(options = {})
+    def self.searchable_options_from(options = {})
       options.each_with_object({}) do |(key, value), result|
         case value
         when Array then result["search[#{key}]"] = value.join(',')

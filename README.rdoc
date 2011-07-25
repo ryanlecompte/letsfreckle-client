@@ -1,16 +1,69 @@
 = letsfreckle-client
 
-Description goes here.
+letsfreckle-client is a Ruby client for accessing the Let's Freckle API.
+Let's Freckle is an intuitive time-tracking service.
+See http://www.letsfreckle.com for more information.
 
-== Contributing to letsfreckle-client
- 
-* Check out the latest master to make sure the feature hasn't been implemented or the bug hasn't been fixed yet
-* Check out the issue tracker to make sure someone already hasn't requested it and/or contributed it
-* Fork the project
-* Start a feature/bugfix branch
-* Commit and push until you are happy with your contribution
-* Make sure to add tests for it. This is important so I don't break it in a future version unintentionally.
-* Please try not to mess with the Rakefile, version, or history. If you want to have your own version, or is otherwise necessary, that is fine, but please isolate to its own commit so I can cherry-pick around it.
+API information can be found at http://madrobby.github.com/freckle-apidocs/
+
+== Installation
+
+letsfreckle-client is available as a RubyGem:
+
+    gem install letsfreckle-client
+
+== Examples
+
+The following examples show how to access functions of the API. In order to use
+the client, you must have an API token. You can access your token via your
+letsfreckle.com settings/profile. Note that currently letsfreckle.com hosts
+a sample API test account, which the following examples utilize.
+
+=== Example:
+
+    # Configure the client before fetching data.
+    LetsFreckle.configure do
+      account_host "apitest"
+      username "apitest@letsfreckle.com"
+      token "lx3gi6pxdjtjn57afp8c2bv1me7g89j"
+    end
+
+    # Fetch all entries.
+    LetsFreckle::Entry.all.each do |entry|
+      puts "Entry #{entry.description} - #{entry.minutes} minutes"
+    end
+
+    # Search for entries from a specific start date and tags
+    LetsFreckle::Entry.find(:from => '2010-07-10', :tags => ['development', 'design']).each do |entry|
+      puts entry.description
+    end
+
+    # Fetch all projects and associated entries
+    LetsFreckle::Project.all.each do |project|
+      puts "Project #{project.name} has #{project.entries.size} entries"
+    end
+
+    # Fetch all tags and associated entries
+    LetsFreckle::Tag.all.each do |tag|
+      puts "Tag #{tag.name} has #{tag.entries.size} entries"
+    end
+
+    # Fetch all users and associated permissions
+    LetsFreckle::User.all.each do |user|
+      puts "User #{user.email} has following permissions: #{user.permissions}"
+    end
+
+== Note on Patches/Pull Requests
+
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a future version unintentionally.
+* Commit, do not mess with rakefile, version, or history. (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
+== Authors
+
+* Ryan LeCompte
 
 == Copyright
 

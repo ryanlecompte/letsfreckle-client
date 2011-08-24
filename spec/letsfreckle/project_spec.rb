@@ -9,7 +9,7 @@ describe LetsFreckle::Project do
         token "secret"
       end
 
-      stub_http_request(:get, LetsFreckle::Project.url('projects')).to_return(:body => load_response('projects'))
+      stub_api_request('projects')
       projects = LetsFreckle::Project.all
       projects.size.should == 2
 

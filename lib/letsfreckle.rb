@@ -1,6 +1,10 @@
-require 'hashie'
-require 'httparty'
 require 'delegate'
+
+require 'hashie'
+require 'faraday'
+require 'faraday_middleware'
+require 'faraday/response/flatten_body'
+require 'faraday/response/verify_status'
 
 require 'letsfreckle/version'
 require 'letsfreckle/extensions/mash'

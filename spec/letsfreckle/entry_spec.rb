@@ -9,7 +9,7 @@ describe LetsFreckle::Entry do
         token "secret"
       end
 
-      stub_http_request(:get, LetsFreckle::Entry.url('entries')).to_return(:body => load_response('entries'))
+      stub_api_request('entries')
       entries = LetsFreckle::Entry.all
       entries.size.should == 2
 

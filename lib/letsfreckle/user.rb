@@ -3,7 +3,7 @@ module LetsFreckle
     extend ClientResource
 
     def self.all
-      fetch('users')
+      get('users')
     end
 
     def entries

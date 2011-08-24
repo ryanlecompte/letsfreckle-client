@@ -9,7 +9,7 @@ describe LetsFreckle::Tag do
         token "secret"
       end
 
-      stub_http_request(:get, LetsFreckle::Tag.url('tags')).to_return(:body => load_response('tags'))
+      stub_api_request('tags')
       tags = LetsFreckle::Tag.all
       tags.size.should == 2
 

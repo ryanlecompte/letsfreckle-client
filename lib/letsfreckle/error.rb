@@ -1,6 +1,5 @@
 module LetsFreckle
-  class FetchError < StandardError
-  end
-  class CreateError < StandardError
-  end
+  class Error < StandardError; end
+  class FetchError < Error; end
+  class CreateError < Error; end
 end

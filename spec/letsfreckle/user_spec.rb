@@ -9,7 +9,7 @@ describe LetsFreckle::User do
         token "secret"
       end
 
-      stub_http_request(:get, LetsFreckle::User.url('users')).to_return(:body => load_response('users'))
+      stub_api_request('users')
       users = LetsFreckle::User.all
       users.size.should == 2
 

@@ -2,38 +2,39 @@ module LetsFreckle
   # ClientResource should be extended by resource classes in order to gain
   # access to HTTP methods.
   module ClientResource
-    API_URL = "https://%s.letsfreckle.com/api/%s.xml?token=%s"
 
-    def fetch(resource, options = {})
-      response = HTTParty.get(url(resource), :query => options, :format => :xml)
-      verify!(response, 200) { raise FetchError, "Fetch failed, HTTP error: #{response.code}" }
-      mashes = mashes_from_response(response)
-      mashes.map { |m| new(m) }
+    def get(resource, options = {})
+      response = client.get do |request|
+        request.url relative_path_for(resource), options
+      end
+      response.body.map { |mash| new(mash) }
     end
 
     def post(resource, options = {})
-      response = HTTParty.post(url(resource), :body => options, :format => :xml)
-      verify!(response, 201) { raise CreateError, "Create failed, HTTP error: #{response.code}" }
+      client.post do |request|
+        request.url relative_path_for(resource), options
+        request.headers['Content-Type'] = 'application/xml'
+      end
     end
 
-    def url(resource)
-      API_URL % [LetsFreckle.config.account_host, resource, LetsFreckle.config.token]
+    def base_api_url
+      "https://#{LetsFreckle.config.account_host}.letsfreckle.com"
+    end
+
+    def relative_path_for(resource)
+      "/api/#{resource}.xml?token=#{LetsFreckle.config.token}"
     end
 
     private
 
-    def verify!(response, code, &block)
-      block.call unless response.code == code
-    end
-
-    def mashes_from_response(response)
-      return [] unless response.respond_to?(:to_a)
-      flattened_response = response.to_a.flatten
-      flattened_response.keep_if { |r| r.is_a?(Hash) }
-      flattened_response.map do |h|
-        m = Hashie::Mash.new(h)
-        # extend so that #respond_to? works nicely with DelegateClass
-        m.extend(Extensions::Mash)
+    def client
+      Faraday.new(:url => base_api_url) do |builder|
+        builder.use Faraday::Request::UrlEncoded
+        builder.use Faraday::Response::FlattenBody
+        builder.use Faraday::Response::Mashify
+        builder.use Faraday::Response::ParseXml
+        builder.use Faraday::Response::VerifyStatus
+        builder.use Faraday::Adapter::NetHttp
       end
     end
   end

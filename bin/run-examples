@@ -1,0 +1,41 @@
+#!/usr/bin/env ruby
+
+$LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
+require 'letsfreckle'
+
+# Configure the API credentials.
+LetsFreckle.configure do
+  account_host "apitest"
+  username "apitest@letsfreckle.com"
+  token "lx3gi6pxdjtjn57afp8c2bv1me7g89j"
+end
+
+puts "Fetch all entries:"
+LetsFreckle::Entry.all.each do |entry|
+  puts "Entry #{entry.description} - #{entry.minutes} minutes"
+end
+
+puts "Search for entries from a specific start date and tags:"
+LetsFreckle::Entry.find(:from => '2010-07-10', :tags => ['development', 'design']).each do |entry|
+  puts entry.description
+end
+
+puts "Fetch all projects and associated entries:"
+LetsFreckle::Project.all.each do |project|
+  puts "Project #{project.name} has #{project.entries.size} entries"
+end
+
+puts "Fetch all tags and associated entries:"
+LetsFreckle::Tag.all.each do |tag|
+  puts "Tag #{tag.name} has #{tag.entries.size} entries"
+end
+
+puts "Fetch all users and associated permissions:"
+LetsFreckle::User.all.each do |user|
+  puts "User #{user.email} has following permissions: #{user.permissions}"
+end
+
+
+
+
+

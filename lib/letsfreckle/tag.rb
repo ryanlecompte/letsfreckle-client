@@ -3,7 +3,7 @@ module LetsFreckle
     extend ClientResource
 
     def self.all
-      fetch('tags')
+      get('tags')
     end
 
     def entries

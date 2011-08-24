@@ -3,7 +3,7 @@ module LetsFreckle
     extend ClientResource
 
     def self.all
-      fetch('entries')
+      get('entries')
     end
 
     # Fetches all entries. Supported options are:
@@ -14,7 +14,7 @@ module LetsFreckle
     #  :to => '2012-01-01'
     #  :billable => true/false
     def self.find(options = {})
-      fetch('entries', searchable_options_from(options))
+      get('entries', searchable_options_from(options))
     end
 
     # Creates a new entry. Supported options are:
@@ -31,8 +31,10 @@ module LetsFreckle
     def self.searchable_options_from(options = {})
       options.each_with_object({}) do |(key, value), result|
         case value
-        when Array then result["search[#{key}]"] = value.join(',')
-        else result["search[#{key}]"] = value.to_s
+        when Array then
+          result["search[#{key}]"] = value.join(',')
+        else
+          result["search[#{key}]"] = value.to_s
         end
       end
     end

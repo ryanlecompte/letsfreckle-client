@@ -11,8 +11,8 @@ module Faraday
       def call(env)
         if env[:method] == :post
           env[:body] = env[:body].to_xml(:root => env[:body].delete(:root))
-          puts env[:body]
         end
+
         @app.call(env)
       end
     end

@@ -3,6 +3,7 @@ require 'delegate'
 require 'hashie'
 require 'faraday'
 require 'faraday_middleware'
+require 'faraday/request/xml'
 require 'faraday/response/flatten_body'
 require 'faraday/response/verify_status'
 

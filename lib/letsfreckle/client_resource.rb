@@ -12,8 +12,9 @@ module LetsFreckle
 
     def post(resource, options = {})
       client.post do |request|
-        request.url relative_path_for(resource), options
+        request.url relative_path_for(resource)
         request.headers['Content-Type'] = 'application/xml'
+        request.body = options
       end
     end
 
@@ -30,6 +31,7 @@ module LetsFreckle
     def client
       Faraday.new(:url => base_api_url) do |builder|
         builder.use Faraday::Request::UrlEncoded
+        builder.use Faraday::Request::XML
         builder.use Faraday::Response::FlattenBody
         builder.use Faraday::Response::Mashify
         builder.use Faraday::Response::ParseXml

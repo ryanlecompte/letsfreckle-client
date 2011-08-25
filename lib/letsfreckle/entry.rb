@@ -25,7 +25,7 @@ module LetsFreckle
     def self.create(options = {})
       raise ArgumentError, ':username config missing' unless LetsFreckle.config.username
       raise ArgumentError, ':minutes missing' unless options.has_key?(:minutes)
-      post('entries', :entry => options.merge(:user => LetsFreckle.config.username))
+      post('entries', options.merge(:root => :entry, :user => LetsFreckle.config.username))
     end
 
     def self.searchable_options_from(options = {})

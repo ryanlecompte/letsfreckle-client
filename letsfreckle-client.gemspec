@@ -23,6 +23,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'faraday', '~> 0.7.4'
   s.add_dependency 'faraday_middleware', '~> 0.7.0'
   s.add_dependency 'multi_xml', '~> 0.2.0'
+  s.add_development_dependency "activesupport", "~> 2.3"
   s.add_development_dependency 'rspec', '~> 2.5.0'
   s.add_development_dependency 'webmock', '~> 1.6.2'
 end

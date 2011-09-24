@@ -30,12 +30,7 @@ module LetsFreckle
 
     def self.searchable_options_from(options = {})
       options.each_with_object({}) do |(key, value), result|
-        case value
-        when Array then
-          result["search[#{key}]"] = value.join(',')
-        else
-          result["search[#{key}]"] = value.to_s
-        end
+        result["search[#{key}]"] = Array(value).map(&:to_s).join(',')
       end
     end
   end

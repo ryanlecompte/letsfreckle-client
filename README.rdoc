@@ -4,7 +4,7 @@ letsfreckle-client is a Ruby client for accessing the Let's Freckle API.
 Let's Freckle is an intuitive time-tracking service.
 See http://www.letsfreckle.com for more information.
 
-API information can be found at http://madrobby.github.com/freckle-apidocs/
+API information can be found at http://developer.letsfreckle.com/
 
 == Installation
 

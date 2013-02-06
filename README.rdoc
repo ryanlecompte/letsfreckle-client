@@ -36,6 +36,11 @@ a sample API test account, which the following examples utilize.
       puts "Entry #{entry.description} - #{entry.minutes} minutes"
     end
 
+    # Fetch all entries on all pages
+    LetsFreckle::Entry.all(:all_pages => true).each do |entry|
+      puts "Entry #{entry.description} - #{entry.minutes} minutes"
+    end
+
     # Search for entries from a specific start date and tags
     LetsFreckle::Entry.find(:from => '2010-07-10', :tags => ['development', 'design']).each do |entry|
       puts entry.description

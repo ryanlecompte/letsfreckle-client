@@ -56,6 +56,11 @@ a sample API test account, which the following examples utilize.
       puts "User #{user.email} has following permissions: #{user.permissions}"
     end
 
+== Development
+
+Bundler is used to manage dependencies. Use `bundle install` to get set up.
+Tests are written in rspec, use `bundle exec rspec spec/*` to run the tests.
+
 == Note on Patches/Pull Requests
 
 * Fork the project.

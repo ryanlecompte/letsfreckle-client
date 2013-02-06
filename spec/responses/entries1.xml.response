@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entries type="array">
+  <entry>
+    <billable type="boolean">true</billable>
+    <created-at type="datetime">2011-05-25T13:15:35Z</created-at>
+    <date type="date">2011-11-25</date>
+    <description>api test description</description>
+    <description-text>freckle restful api test</description-text>
+    <id type="integer">986234</id>
+    <import-id type="integer" nil="true"></import-id>
+    <invoiced-at type="datetime" nil="true"></invoiced-at>
+    <minutes type="integer">30</minutes>
+    <project-id type="integer" nil="true"></project-id>
+    <project-invoice-id type="integer" nil="true"></project-invoice-id>
+    <recently-updated-at type="datetime">2011-05-25T13:15:35Z</recently-updated-at>
+    <time-from type="integer" nil="true"></time-from>
+    <time-to type="integer" nil="true"></time-to>
+    <updated-at type="datetime">2011-05-25T13:15:35Z</updated-at>
+    <url nil="true"></url>
+    <user-id type="integer">5543</user-id>
+    <tags type="array">
+      <tag>
+        <billable type="boolean">true</billable>
+        <id type="integer">23035</id>
+        <name>bulk import</name>
+      </tag>
+    </tags>
+  </entry>
+  <entry>
+    <billable type="boolean">true</billable>
+    <created-at type="datetime">2011-02-18T15:27:57Z</created-at>
+    <date type="date">2011-01-28</date>
+    <description>api test description</description>
+    <description-text></description-text>
+    <id type="integer">708805</id>
+    <import-id type="integer" nil="true"></import-id>
+    <invoiced-at type="datetime" nil="true"></invoiced-at>
+    <minutes type="integer">420</minutes>
+    <project-id type="integer">8475</project-id>
+    <project-invoice-id type="integer" nil="true"></project-invoice-id>
+    <recently-updated-at type="datetime">2011-02-18T15:27:57Z</recently-updated-at>
+    <time-from type="integer" nil="true"></time-from>
+    <time-to type="integer" nil="true"></time-to>
+    <updated-at type="datetime">2011-02-18T15:27:57Z</updated-at>
+    <url nil="true"></url>
+    <user-id type="integer">5543</user-id>
+    <tags type="array">
+      <tag>
+        <billable type="boolean">true</billable>
+        <id type="integer">123124</id>
+        <name>- instru</name>
+      </tag>
+    </tags>
+  </entry>
+</entries>

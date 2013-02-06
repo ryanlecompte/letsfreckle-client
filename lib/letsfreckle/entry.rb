@@ -2,7 +2,20 @@ module LetsFreckle
   class Entry < DelegateClass(Hashie::Mash)
     extend ClientResource
 
-    def self.all
+    def self.all(options = {})
+      if options[:all_pages]
+        collector = []
+        page = 1
+        while true do
+          response = get('entries', {:page => page})
+          page+=1
+          if response.empty?
+            return collector
+          else
+            collector.concat response
+          end
+        end
+      end
       get('entries')
     end
 

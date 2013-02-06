@@ -22,8 +22,8 @@ module LetsFreckle
       "https://#{LetsFreckle.config.account_host}.letsfreckle.com"
     end
 
-    def relative_path_for(resource)
-      "/api/#{resource}.xml?token=#{LetsFreckle.config.token}"
+    def relative_path_for(resource, page = nil)
+      "/api/#{resource}.xml?page=#{page.nil? ? 1 : page}&token=#{LetsFreckle.config.token}"
     end
 
     private

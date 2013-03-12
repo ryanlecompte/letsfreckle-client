@@ -4,10 +4,17 @@ module LetsFreckle
   module ClientResource
 
     def get(resource, options = {})
+      get_single = options.delete(:single)
+
       response = client.get do |request|
         request.url relative_path_for(resource), options
       end
-      response.body.map { |mash| new(mash) }
+
+      if get_single
+        new(response.body.first)
+      else
+        response.body.map { |mash| new(mash) }
+      end
     end
 
     def post(resource, options = {})

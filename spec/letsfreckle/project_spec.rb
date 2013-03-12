@@ -17,4 +17,20 @@ describe LetsFreckle::Project do
       first_project.name.should == 'TestProject1'
     end
   end
+
+  context ".find" do
+    it "should return one project" do
+      LetsFreckle.configure do
+        username "username"
+        account_host "host"
+        token "secret"
+      end
+
+      stub_api_request('projects/1343')
+      project = LetsFreckle::Project.find(1343)
+      project.class.should == LetsFreckle::Project
+
+      project.name.should == 'TestProject1'
+    end
+  end
 end

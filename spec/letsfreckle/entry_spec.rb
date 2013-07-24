@@ -31,4 +31,18 @@ describe LetsFreckle::Entry do
       entries.size.should == 4
     end
   end
+  
+  context "by_page" do
+    it "should return the specific page" do
+      LetsFreckle.configure do
+        username "username"
+        account_host "host"
+        token "secret"
+      end
+
+      stub_api_request('entries', {:page => 3})
+      entries = LetsFreckle::Entry.find(page: 3)
+      entries.size.should == 0
+    end
+  end
 end

@@ -27,7 +27,8 @@ module LetsFreckle
     #  :to => '2012-01-01'
     #  :billable => true/false
     def self.find(options = {})
-      get('entries', searchable_options_from(options))
+      page = options.delete(:page)
+      get('entries', searchable_options_from(options).merge({ page: page }))
     end
 
     # Creates a new entry. Supported options are:

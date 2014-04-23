@@ -1,3 +1,3 @@
-module Letsfreckle
+module LetsFreckle
   VERSION = "0.2.1"
 end

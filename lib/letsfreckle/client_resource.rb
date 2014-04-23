@@ -39,6 +39,7 @@ module LetsFreckle
       Faraday.new(:url => base_api_url) do |builder|
         builder.use Faraday::Request::UrlEncoded
         builder.use Faraday::Request::XML
+        builder.use Faraday::Request::UserAgent, LetsFreckle::USER_AGENT
         builder.use Faraday::Response::FlattenBody
         builder.use Faraday::Response::Mashify
         builder.use Faraday::Response::ParseXml

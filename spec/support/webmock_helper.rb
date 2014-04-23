@@ -19,7 +19,7 @@ module WebMockHelper
         with(:headers => {
           'Accept'         =>'*/*',
           'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'User-Agent'     =>'Ruby'
+          'User-Agent'     => LetsFreckle::USER_AGENT
         }).
         to_return(:body => load_response(resource, options), :headers => headers_for_response(resource))
   end

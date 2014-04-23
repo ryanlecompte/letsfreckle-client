@@ -4,7 +4,7 @@ require "letsfreckle/version"
 
 Gem::Specification.new do |s|
   s.name        = "letsfreckle-client"
-  s.version     = Letsfreckle::VERSION
+  s.version     = LetsFreckle::VERSION
   s.platform    = Gem::Platform::RUBY
   s.authors     = ["Ryan LeCompte"]
   s.email       = ["lecompte@gmail.com"]

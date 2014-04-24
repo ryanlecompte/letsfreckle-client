@@ -41,7 +41,7 @@ describe LetsFreckle::Entry do
       end
 
       stub_api_request('entries', {:page => 3})
-      entries = LetsFreckle::Entry.find(page: 3)
+      entries = LetsFreckle::Entry.find(:page => 3)
       entries.size.should == 0
     end
   end

@@ -16,11 +16,15 @@ module WebMockHelper
 
   def stub_api_request(resource, options = {})
     stub_http_request(:get, url_for_resource(resource, options)).
-        with(:headers => {
-          'Accept'         =>'*/*',
-          'Accept-Encoding'=>'gzip;q=1.0,deflate;q=0.6,identity;q=0.3',
-          'User-Agent'     => LetsFreckle::USER_AGENT
-        }).
+        with(:headers => stub_api_headers).
         to_return(:body => load_response(resource, options), :headers => headers_for_response(resource))
+  end
+
+  def stub_api_headers(headers={})
+    headers.reverse_merge!( 'Accept' =>'*/*', 'User-Agent' => LetsFreckle::USER_AGENT )
+    if RUBY_VERSION !~ /^1.8/
+      headers.reverse_merge!({ 'Accept-Encoding' => 'gzip;q=1.0,deflate;q=0.6,identity;q=0.3' })
+    end
+    headers
   end
 end

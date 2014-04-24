@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <account-id type="integer">100</account-id>
+  <budget type="integer" nil="true"></budget>
+  <created-at type="datetime">2008-12-19T16:23:06Z</created-at>
+  <enabled type="boolean">true</enabled>
+  <id type="integer">1344</id>
+  <name>TestProject2</name>
+  <stepping type="integer">15</stepping>
+  <updated-at type="datetime">2008-12-19T16:23:06Z</updated-at>
+  <user-id type="integer" nil="true"></user-id>
+  <cached_tags type="yaml">---
+  - :tag:
+      :billable: t
+      :name: billabletag
+      :id: 13431
+  - :tag:
+      :billable: n
+      :name: nonbillabletag
+      :id: 13432</cached_tags>
+</project>

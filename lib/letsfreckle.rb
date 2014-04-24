@@ -6,6 +6,7 @@ require 'faraday_middleware'
 require 'faraday/request/xml'
 require 'faraday/request/user_agent'
 require 'faraday/response/flatten_body'
+require 'faraday/response/parse_xml_yaml_allowed'
 require 'faraday/response/verify_status'
 
 require 'letsfreckle/version'

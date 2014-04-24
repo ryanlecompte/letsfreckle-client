@@ -42,7 +42,7 @@ module LetsFreckle
         builder.use Faraday::Request::UserAgent, LetsFreckle::USER_AGENT
         builder.use Faraday::Response::FlattenBody
         builder.use Faraday::Response::Mashify
-        builder.use Faraday::Response::ParseXml
+        builder.use Faraday::Response::ParseXml::YamlAllowed
         builder.use Faraday::Response::VerifyStatus
         builder.use Faraday::Adapter::NetHttp
       end

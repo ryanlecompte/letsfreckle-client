@@ -12,6 +12,9 @@ Gem::Specification.new do |s|
   s.summary     = %q{Ruby client for letsfreckle.com API}
   s.description = %q{Ruby client for letsfreckle.com API that supports entries, projects, tags, and users}
 
+  s.required_ruby_version = '>= 1.8.7'
+  s.required_rubygems_version = ">= 1.3.6"
+
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- spec/*`.split("\n")
   s.executables   = `git ls-files -- bin/*`.split("\n").map{ |f| File.basename(f) }

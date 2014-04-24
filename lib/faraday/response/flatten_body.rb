@@ -8,7 +8,7 @@ module Faraday
       def parse(body)
         return body unless body.respond_to?(:to_a)
         flattened_response = body.to_a.flatten
-        flattened_response.keep_if { |item| ::Hashie::Mash === item }
+        flattened_response.delete_if { |item| !(::Hashie::Mash === item) }
         flattened_response.map do |mash|
           # extend so that #respond_to? works nicely with DelegateClass
           mash.extend(LetsFreckle::Extensions::Mash)

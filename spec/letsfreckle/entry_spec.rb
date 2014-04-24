@@ -16,7 +16,7 @@ describe LetsFreckle::Entry do
       first_entry = entries.first
       first_entry.description.should == 'api test description'
     end
-    
+
     it "should return all entries on all pages" do
       LetsFreckle.configure do
         username "username"
@@ -31,7 +31,7 @@ describe LetsFreckle::Entry do
       entries.size.should == 4
     end
   end
-  
+
   context "by_page" do
     it "should return the specific page" do
       LetsFreckle.configure do
@@ -41,7 +41,7 @@ describe LetsFreckle::Entry do
       end
 
       stub_api_request('entries', {:page => 3})
-      entries = LetsFreckle::Entry.find(page: 3)
+      entries = LetsFreckle::Entry.find(:page => 3)
       entries.size.should == 0
     end
   end

@@ -14,7 +14,8 @@ module LetsFreckle
     end
 
     def user_agent_ruby
-      [ "#{RUBY_ENGINE}/#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}",
+      ruby_engine = defined?(RUBY_ENGINE) ? RUBY_ENGINE : "ruby"
+      [ "#{ruby_engine}/#{RUBY_VERSION}-p#{RUBY_PATCHLEVEL}",
         "(#{RUBY_PLATFORM})" ]
     end
   end
